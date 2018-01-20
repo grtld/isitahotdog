@@ -23,12 +23,23 @@ function consult() {
   // predict the contents of an image by passing in a url
   app.models.predict(Clarifai.GENERAL_MODEL, 'https://samples.clarifai.com/metro-north.jpg').then(
     function(response) {
-      handleResponse(response)
+      alert(parseResponse(response));
     },
     function(err) {
       console.error(err);
     }
   );
+}
+  
+function parseResponse(resp) {
+  var tags = [];
+  if (resp.status_code === 'OK') {
+    var results = resp.results;
+    tags = results[0].result.tag.classes;
+  } else {
+    console.log('Sorry, something is wrong.');
+  }
+  return tags;
 }
 
 </script>
@@ -39,7 +50,7 @@ function consult() {
   </head>
   <body>
   <input type='file' />
-  <br><img id="myImg" src="#" alt="Upload a photo" width="50%" height=auto>
+  <br><img id="myImg" src="#" alt="Upload a photo!" width="50%" height=auto>
   <br><button type="button" onclick="consult()">consult the hot dog expert</button>
   </body>
 </html>
