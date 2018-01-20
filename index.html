@@ -19,21 +19,18 @@
 
 function imageIsLoaded(e) { alert(e); }
 
-  
-// add some inputs
 function consult() {
-  alert(img.src)
-  app.inputs.create(img.src).then(
-    searchForHotDog,
+  // add some inputs
+  app.inputs.create('https://samples.clarifai.com/puppy.jpeg').then(
+    searchForDog,
     function(err) {
       console.error(err);
     }
   );
-};
-  
+}
+
 // search for concepts
-function searchForHotDog(response) {
-  alert("searching")
+function searchForDog(response) {
   app.inputs.search({
     concept: {
       name: 'dog'
