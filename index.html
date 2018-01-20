@@ -23,8 +23,8 @@ function imageIsLoaded(e) { alert(e); }
 // add some inputs
 function consult() {
   alert("consulting")
-  app.inputs.create(img.src).then(
-    consult,
+  app.inputs.create('https://samples.clarifai.com/puppy.jpeg').then(
+    searchForHotDog,
     function(err) {
       console.error(err);
     }
@@ -32,11 +32,11 @@ function consult() {
 };
   
 // search for concepts
-function searchForHotDog(response) {
-  alert("seraching")
+function searchForDog(response) {
+  alert("searching")
   app.inputs.search({
     concept: {
-      name: 'hot dog'
+      name: 'dog'
     }
   }).then(
     function(response) {
@@ -56,7 +56,7 @@ function searchForHotDog(response) {
   </head>
   <body>
   <input type='file' />
-  <br><img id="myImg" src="#" alt="Upload a photo" width="50%" height=auto>
+  <br><img id="myImg" src="#" alt="Upload a photo!" width="50%" height=auto>
   <br><button type="button" onclick="consult()">consult the hot dog expert</button>
   </body>
 </html>
