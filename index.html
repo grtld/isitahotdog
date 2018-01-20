@@ -20,27 +20,13 @@
 function imageIsLoaded(e) { alert(e); }
 
 function consult() {
-  // add some inputs
-  app.inputs.create('https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.jpg').then(
-    searchForDog,
-    function(err) {
-      console.error(err);
-    }
-  );
-}
-
-// search for concepts
-function searchForDog(response) {
-  app.inputs.search({
-    concept: {
-      name: 'dog'
-    }
-  }).then(
+  // predict the contents of an image by passing in a url
+  app.models.predict(Clarifai.GENERAL_MODEL, 'https://samples.clarifai.com/metro-north.jpg').then(
     function(response) {
       alert(response);
     },
-    function(response) {
-      console.error(response);
+    function(err) {
+      console.error(err);
     }
   );
 }
