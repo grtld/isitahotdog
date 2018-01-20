@@ -1,26 +1,15 @@
-<html>
-  <head>
-  </head>
-  <body>
-  <div id="target">You can drag an image file here</div>
-    
 <script>
-
-  const target = document.getElementById('target');
-
-  target.addEventListener('drop', (e) => {
-    e.stopPropagation();
-    e.preventDefault();
-
-    doSomethingWithFiles(e.dataTransfer.files);
+  window.addEventListener('load', function() {
+  document.querySelector('input[type="file"]').addEventListener('change', function() {
+      if (this.files && this.files[0]) {
+          var img = document.querySelector('img');  // $('img')[0]
+          img.src = URL.createObjectURL(this.files[0]); // set src to file url
+          img.onload = imageIsLoaded; // optional onload event listener
+      }
   });
+});
 
-  target.addEventListener('dragover', (e) => {
-    e.stopPropagation();
-    e.preventDefault();
-
-    e.dataTransfer.dropEffect = 'copy';
-  });
+function imageIsLoaded(e) { alert(e); }
   
   // instantiate a new Clarifai app passing in your API Key
   const app = new Clarifai.App({
@@ -52,5 +41,13 @@
   }
 
 </script>
+
+<html>
+  <head>
+  </head>
+  <body>
+  <input type='file' />
+  <br><img id="myImg" src="#" alt="your image" height=200 width=100>
+  <button type="button">Is it a hot dog?</button>
   </body>
 </html>
