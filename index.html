@@ -23,23 +23,12 @@ function consult() {
   // predict the contents of an image by passing in a url
   app.models.predict(Clarifai.GENERAL_MODEL, 'https://samples.clarifai.com/metro-north.jpg').then(
     function(response) {
-      alert(parseResponse(response));
+      console.log(response);
     },
     function(err) {
       console.error(err);
     }
   );
-}
-  
-function parseResponse(resp) {
-  var tags = [];
-  //if (resp.status_code === 'OK') {
-    var results = resp.results;
-    tags = results[0].result.tag.classes;
-  /*} else {
-    console.log(resp.status_code);
-  }*/
-  return tags;
 }
 
 </script>
