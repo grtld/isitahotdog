@@ -33,12 +33,12 @@ function consult() {
   
 function parseResponse(resp) {
   var tags = [];
-  if (resp.status_code === 'OK') {
+  //if (resp.status_code === 'OK') {
     var results = resp.results;
     tags = results[0].result.tag.classes;
-  } else {
+  /*} else {
     console.log(resp.status_code);
-  }
+  }*/
   return tags;
 }
 
