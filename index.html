@@ -20,10 +20,10 @@
 function imageIsLoaded(e) { alert(e); }
 
 function consult() {
-  alert(Clarifai.getTagsByUrl('https://samples.clarifai.com/wedding.jpg').then(
+  alert(Clarifai.getTagsByUrl('https://samples.clarifai.com/wedding.jpg')).then(
   handleResponse,
   handleError
-););
+);
 }
 
 </script>
