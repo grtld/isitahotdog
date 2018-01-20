@@ -10,29 +10,35 @@
   apiKey: 'daa61691c8ce41d8820694e320b50cd2'
   });
   
+  var img;
+  
   window.addEventListener('load', function() {
   document.querySelector('input[type="file"]').addEventListener('change', function() {
       if (this.files && this.files[0]) {
-          var img = document.querySelector('img');  // $('img')[0]
+          img = document.querySelector('img');  // $('img')[0]
           img.src = URL.createObjectURL(this.files[0]); // set src to file url
           //img.onload = imageIsLoaded; // optional onload event listener
-        
-          // add some inputs
-          app.inputs.create(img.src).then(
-            consult,
-            function(err) {
-              console.error(err);
-            }
-          );
       }
   });
 });
 
 function imageIsLoaded(e) { alert(e); }
 
-// search for concepts
-function consult(response) {
+  
+// add some inputs
+function consult() {
   alert("consulting")
+  app.inputs.create(img.src).then(
+    consult,
+    function(err) {
+      console.error(err);
+    }
+  );
+}
+  
+// search for concepts
+function searchForHotDog(response) {
+  alert("seraching")
   app.inputs.search({
     concept: {
       name: 'hot dog'
@@ -55,7 +61,7 @@ function consult(response) {
   </head>
   <body>
   <input type='file' />
-  <br><img id="myImg" src="#" alt="Upload a photo!" width="50%" height=auto>
-  <br><button type="button">consult the hot dog expert</button>
+  <br><img id="myImg" src="#" alt="Upload a photo" width="50%" height=auto>
+  <br><button type="button" onclick="consult()">consult the hot dog expert</button>
   </body>
 </html>
