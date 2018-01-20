@@ -2,16 +2,30 @@
   <head>
   </head>
   <body>
-  <input type="file" accept="image/*" id="file-input">
+  <div id="target">You can drag an image file here</div>
+    
 <script>
 
+  const target = document.getElementById('target');
+
+  target.addEventListener('drop', (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+
+    doSomethingWithFiles(e.dataTransfer.files);
+  });
+
+  target.addEventListener('dragover', (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+
+    e.dataTransfer.dropEffect = 'copy';
+  });
+  
   // instantiate a new Clarifai app passing in your API Key
   const app = new Clarifai.App({
    apiKey: 'daa61691c8ce41d8820694e320b50cd2'
   });
-  
-  const fileInput = document.getElementById('file-input');
-  fileInput.addEventListener('change', (e) => searchForHotDog(e.target.files));
 
   // add some inputs
   app.inputs.create(fileInput).then(
