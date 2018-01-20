@@ -18,6 +18,8 @@ function imageIsLoaded(e) { alert(e); }
    apiKey: 'daa61691c8ce41d8820694e320b50cd2'
   });
 
+  // search for concepts
+  function consult(response) {
   // add some inputs
   app.inputs.create(img.src).then(
     searchForDog,
@@ -25,9 +27,7 @@ function imageIsLoaded(e) { alert(e); }
       console.error(err);
     }
   );
-
-  // search for concepts
-  function searchForHotDog(response) {
+    
     app.inputs.search({
       concept: {
         name: 'hot dog'
@@ -50,6 +50,6 @@ function imageIsLoaded(e) { alert(e); }
   <body>
   <input type='file' />
   <br><img id="myImg" src="#" alt="Upload a photo!" width="50%" height=auto>
-  <br><button type="button">consult the hot dog expert</button>
+  <br><button type="button" onclick=consult()">consult the hot dog expert</button>
   </body>
 </html>
