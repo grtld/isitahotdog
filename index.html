@@ -23,7 +23,7 @@ function consult() {
   // predict the contents of an image by passing in a url
   app.models.predict(Clarifai.GENERAL_MODEL, 'https://samples.clarifai.com/metro-north.jpg').then(
     function(response) {
-      alert(response);
+      alert(JSON.stringify(response));
     },
     function(err) {
       console.error(err);
