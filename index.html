@@ -1,0 +1,42 @@
+<html>
+  <head>
+  </head>
+  <body>
+  <input type="file" accept="image/*" id="file-input">
+<script>
+
+  // instantiate a new Clarifai app passing in your API Key
+  const app = new Clarifai.App({
+   apiKey: 'daa61691c8ce41d8820694e320b50cd2'
+  });
+  
+  const fileInput = document.getElementById('file-input');
+  fileInput.addEventListener('change', (e) => searchForHotDog(e.target.files));
+
+  // add some inputs
+  app.inputs.create(fileInput).then(
+    searchForDog,
+    function(err) {
+      console.error(err);
+    }
+  );
+
+  // search for concepts
+  function searchForHotDog(response) {
+    app.inputs.search({
+      concept: {
+        name: 'hot dog'
+      }
+    }).then(
+      function(response) {
+        console.log(response);
+      },
+      function(response) {
+        console.error(response);
+      }
+    );
+  }
+
+</script>
+  </body>
+</html>
