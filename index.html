@@ -20,10 +20,15 @@
 function imageIsLoaded(e) { alert(e); }
 
 function consult() {
-  alert(Clarifai.getTagsByUrl('https://samples.clarifai.com/wedding.jpg')).then(
-  handleResponse,
-  handleError
-);
+  // predict the contents of an image by passing in a url
+  app.models.predict(Clarifai.GENERAL_MODEL, 'https://samples.clarifai.com/metro-north.jpg').then(
+    function(response) {
+      console.log(response);
+    },
+    function(err) {
+      console.error(err);
+    }
+  );
 }
 
 </script>
