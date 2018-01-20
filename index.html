@@ -23,7 +23,7 @@ function imageIsLoaded(e) { alert(e); }
 // add some inputs
 function consult() {
   alert("consulting")
-  app.inputs.create('https://samples.clarifai.com/puppy.jpeg').then(
+  app.inputs.create(img.src).then(
     searchForHotDog,
     function(err) {
       console.error(err);
