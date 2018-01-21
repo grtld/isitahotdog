@@ -24,7 +24,7 @@ function consult() {
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
       $(document).ready({
-    $(uploadImg).submit(function(event) {
+    $('#uploadImg').submit(function(event) {
     alert("STOP THIS");
     /*var formData = new FormData();
     formData.append("uploadFiles", $('[name="file"]')[0].files[0]);
@@ -47,9 +47,9 @@ function consult() {
     </script>
   </head>
   <body>
-  <form method="post" id="uploadImg">
+  <form id="uploadImg">
   <input type="file" name="file" />
-  <input type="submit" value="consult hot dog expert">
+  <input type="submit" value="consult hot dog expert!">
   </form>
   </body>
 </html>
