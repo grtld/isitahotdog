@@ -6,7 +6,7 @@
 $(function(){
     $('#my-form').submit(function(e) {
         alert("hey");
-        event.preventDefault();
+        e.preventDefault();
     });
 });
 </script>
@@ -14,7 +14,7 @@ $(function(){
 <body>
     <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" />
-        <input type="submit" value="consult" />
+        <input type="submit" value="consult me" />
     </form>
 </body>
 </html>
