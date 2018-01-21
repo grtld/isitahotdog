@@ -34,18 +34,18 @@
     function findHotDog() {
         //var imgurl = JSON.parse(JSON.stringify(data)).data.img_url;
         
-        app.models.predict(Clarifai.GENERAL_MODEL, 'http://sk.uploads.im/aQvHp.jpg').then(
+        app.models.predict(Clarifai.GENERAL_MODEL, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Hot_dog_with_mustard.png/1200px-Hot_dog_with_mustard.png').then(
             function(response) {
                 var concepts = JSON.parse(JSON.stringify(response)).outputs[0].data.concepts;
                 alert("it begins");
                 for(var i = 0; i < concepts.length; i++) {
                     if(concepts[i].name === "hot dog") {
-                       alert("GASP");
+                       alert("it is a hot dog");
                        return;
                     }
                 }
                 
-                alert("NOT FOUND");
+                alert("it is not a hot dog");
             },
             function(err) {
                 alert(err);
@@ -58,7 +58,7 @@
 <body>
     <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" />
-        <input type="submit" value="submit!" onclick="findHotDog()"/>
+        <input type="submit" value="submit" onclick="findHotDog()"/>
     </form>
 </body>
 </html>
