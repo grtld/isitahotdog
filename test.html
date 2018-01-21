@@ -39,10 +39,13 @@
                 var concepts = JSON.parse(JSON.stringify(response)).outputs[0].data.concepts;
                 alert("it begins");
                 for(var i = 0; i < concepts.length; i++) {
-                    if(concepts[i].name === "cute") {
+                    if(concepts[i].name === "asdf") {
                        alert("GASP");
+                       return;
                     }
                 }
+                
+                alert("NOT FOUND");
             },
             function(err) {
                 alert(err);
