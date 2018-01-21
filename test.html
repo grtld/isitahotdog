@@ -26,28 +26,26 @@
     });
 });*/
     
-    function retJSON() {
-        alert("hey")
+    function getJSON() {
         $('#my-form').submit(function(e) {
             e.preventDefault();
-            alert("yep")
             
             var data = new FormData();
-jQuery.each(jQuery('#file')[0].files, function(i, file) {
-    data.append('file-'+i, file);
-});
+            jQuery.each(jQuery('#file')[0].files, function(i, file) {
+              data.append('file-'+i, file);
+            });
+            
             jQuery.ajax({
-        url: 'http://uploads.im/api?upload',
-        data: data,
-        cache: false,
-        contentType: false,
-        processData: false,
-        method: 'POST',
-        type: 'POST', // For jQuery < 1.9
-        success: function(data){
-            alert(data);
-        }
-    });
+              url: 'http://uploads.im/api?upload',
+              data: data,
+              cache: false,
+              contentType: false,
+              processData: false,
+              method: 'POST',
+              success: function(data){
+                 alert(data);
+              }
+            });
         });
     }
 </script>
@@ -55,7 +53,7 @@ jQuery.each(jQuery('#file')[0].files, function(i, file) {
 <body>
     <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" />
-        <input type="submit" value="submit!" onclick="retJSON()"/>
+        <input type="submit" value="submit" onclick="getJSON()"/>
     </form>
 </body>
 </html>
