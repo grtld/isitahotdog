@@ -2,30 +2,7 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-/*$(function(){
-    $('#my-form').submit(function(e) {
-        
-        $.post($(this).attr('action'), $(this).serialize(), function(json) {
-         alert(json);
-        }, 'json');
-        
-        e.preventDefault();
-        jQuery.ajax({
-        url: 'http://uploads.im/api?upload',
-        data: data,
-        cache: false,
-        contentType: false,
-        processData: false,
-        method: 'POST',
-        type: 'POST', // For jQuery < 1.9
-        success: function(data){
-            alert(data);
-        }
-    });
-    });
-});*/
-    
+<script> 
     function getResponse() {
         $('#my-form').submit(function(e) {
             e.preventDefault();
@@ -41,17 +18,22 @@
               processData: false,
               method: 'POST',
               success: function(data){
-                 alert(data);
+                 getURL(data);
               }
             });
         });
     }
+    
+    function getURL(data) {
+        alert("MY BRAIN HURTS");
+    }
+    
 </script>
 </head>
 <body>
     <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" />
-        <input type="submit" value="submit" onclick="getResponse()"/>
+        <input type="submit" value="submit!" onclick="getResponse()"/>
     </form>
 </body>
 </html>
