@@ -34,10 +34,22 @@ function consult() {
 
 <html>
   <head>
-    <script src="jquery-3.2.1.min.js"></script>
+    <script src="jquery-3.2.1.min.js">
+      $( "#uploadImg" ).submit(function( event ) {
+
+             event.preventDefault(); //to prevent default submission of form
+
+             $.post( "http://uploads.im/api?upload", $( "#uploadImg" ).serialize(),function(data){
+
+                console.log(data); //Response from server
+            });
+
+
+       });
+    </script>
   </head>
   <body>
-  <form method="POST" action="http://uploads.im/api?upload" enctype="multipart/form-data">
+  <form method="POST" id="uploadImg" action="http://uploads.im/api?upload" enctype="multipart/form-data">
   <input type="file" name="file" />
   <input type="submit" value="consult hot dog expert">
   </form>
