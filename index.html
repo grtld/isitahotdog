@@ -35,7 +35,7 @@ function consult() {
 
 <html>
   <head>
-    <script src="jquery-3.2.1.min.js">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
       $( "#uploadImg" ).submit(function( event ) {
 
              event.preventDefault(); //to prevent default submission of form
@@ -50,9 +50,9 @@ function consult() {
     </script>
   </head>
   <body>
-  <form method="POST" id="uploadImg" action="http://uploads.im/api?upload" enctype="multipart/form-data">
+  <form method="POST" id="uploadImg" enctype="multipart/form-data">
   <input type="file" name="file" />
-  <input type="submit" value="consult hot dog expert!">
+  <input type="submit" value="consult hot dog expert">
   </form>
   </body>
 </html>
