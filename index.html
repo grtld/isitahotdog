@@ -24,7 +24,7 @@ function consult() {
     function(response) {
       strResponse = JSON.stringify(response);
       jsonParse = JSON.parse(strResponse);
-      console.log(jsonParse.status);
+      console.log(jsonParse.data.concepts.name);
     },
     function(err) {
       console.log(err)
