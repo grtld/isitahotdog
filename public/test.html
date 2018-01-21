@@ -10,8 +10,7 @@
     });
     
     function getResponse() {
-        //$("#status").css('color', 'blue');
-        $("#status").html("Contemplating image...");
+        $("#contemplating").html("Contemplating image...");
         $('#my-form').submit(function(e) {
             e.preventDefault();
             var data = new FormData();
@@ -38,12 +37,14 @@
                 var concepts = JSON.parse(JSON.stringify(response)).outputs[0].data.concepts;
                 for(var i = 0; i < concepts.length; i++) {
                     if(concepts[i].name === "hotdog" || concepts[i].name === "hot dog") {
-                       $("#status").html("This is a hot dog.");
+                       $("#isHotDog").html("This is a hot dog.");
+                       $("#contemplating").html(" ");
                        return;
                     }
                 }
                 
-                $("#status").html("This is not a hot dog.");
+                $("#notHotDog").html("This is not a hot dog.");
+                $("#contemplating").html(" ");
             },
             function(err) {
                 alert(err);
@@ -53,7 +54,9 @@
     
     
     function readURL(input) {
-        $("#status").html(" ");
+        $("#contemplating").html(" ");
+        $("#notHotDog").html(" ");
+        $("#isHotDog").html(" ");
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
@@ -88,7 +91,7 @@
                     </label>
                 </div>
                 <div class="col-md-6 col-sm-6 text-left">
-                    <input type="submit" class="btn btn-primary" value="Consult Hot Dog Expert" onclick="getResponse()" />
+                    <input type="submit" class="btn btn-primary" value="Consult Hot Doge Expert" onclick="getResponse()" />
                     <br/>
                 </div>
                 <div align="center">
@@ -97,6 +100,8 @@
             </form>
         </div>
     </div>
-    <div align="center" id="status" style="color:black; font-size:12px;"></div>
+    <div align="center" id="contemplating" style="color:black; font-size:12px;"></div>
+    <div align="center" id="isHotDog" style="color:green; font-size:36px;"></div>
+    <div align="center" id="notHotDog" style="color:red; font-size:36px;"></div>
 </center></body>
 </html>
