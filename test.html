@@ -37,7 +37,14 @@
         app.models.predict(Clarifai.GENERAL_MODEL, 'http://sk.uploads.im/aQvHp.jpg').then(
             function(response) {
                 var concepts = JSON.parse(JSON.stringify(response)).outputs[0].data.concepts;
-                alert(concepts.length);
+                for(var i = 0; i < concepts.length; i++) {
+                    if(concept[i].name == "cute") {
+                        alert("IT'S CUTE");
+                        return;
+                    }
+                }
+                
+                alert("NOT FOUND");
             },
             function(err) {
                 alert(err);
@@ -50,7 +57,7 @@
 <body>
     <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" />
-        <input type="submit" value="submit!" onclick="findHotDog()"/>
+        <input type="submit" value="submit" onclick="findHotDog()"/>
     </form>
 </body>
 </html>
