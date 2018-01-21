@@ -32,8 +32,8 @@
     }
     
     function findHotDog(imgData) {
-        alert("var imgurl");
         var imgurl = JSON.parse(JSON.stringify(imgData)).data.img_url;
+        alert(imgurl);
         
         app.models.predict(Clarifai.GENERAL_MODEL, imgurl).then(
             function(response) {
