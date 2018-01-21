@@ -54,13 +54,29 @@
         );
     }
     
+    
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#myImg')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
 </script>
 </head>
 <body>
     <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" />
+        <input type="file" name="file" accept="image/gif, image/jpeg, image/png" onchange="readURL(this)" />
+        <input type="submit" value="consult hot dog expert!" onclick="getResponse()" />
         <img id="myImg" src="#" alt="Upload a photo" width="50%" height=auto>
-        <input type="submit" value="consult hot dog expert!" onclick="getResponse()"/>
     </form>
 </body>
 </html>
