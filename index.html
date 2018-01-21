@@ -16,12 +16,28 @@
       }
   });
 });
-
 function imageIsLoaded(e) { alert(e); }
-
 function consult() {
-  var imgurl = URL.createObjectURL(img.src);
-  app.models.predict(Clarifai.GENERAL_MODEL, imgurl).then(
+  var filesSelected = document.getElementById("inputFileToLoad").files;
+    if (filesSelected.length > 0){
+        var fileToLoad = filesSelected[0];
+
+        var fileReader = new FileReader();
+
+        fileReader.onload = function(fileLoadedEvent) {
+            var srcData = fileLoadedEvent.target.result; // <--- data: base64
+
+            var divTest = document.getElementById("imgTest");
+            var newImage = document.createElement('img');
+            newImage.src = srcData;
+
+            divTest.innerHTML = newImage.outerHTML;
+
+        }
+
+        console.log(fileReader.readAsDataURL(fileToLoad));
+    }
+  /*app.models.predict(Clarifai.GENERAL_MODEL, imgurl).then(
     function(response) {
       strResponse = JSON.stringify(response);
       jsonParse = JSON.parse(strResponse);
@@ -30,9 +46,8 @@ function consult() {
     function(err) {
       console.log(err)
     }
-  );
+  );*/
 }
-
 </script>
 
 <html>
@@ -40,9 +55,8 @@ function consult() {
     Is it a hot dog?
   </head>
   <body>
-  <form method="POST" action="http://uploads.im/api?upload" enctype="multipart/form-data">
-  <input type="file" name="file" />
-  <input type="submit" value="consult hot dog expert">
-  </form>
+  <input id="inputFileToLoad" type="file" />
+  <br><img id="myImg" src="#" alt="Upload a photo!" width="50%" height=auto>
+  <br><button type="button" onclick="consult()">consult the hot dog expert</button>
   </body>
 </html>
