@@ -23,23 +23,24 @@ function consult() {
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-      $( "#uploadImg" ).submit(function( event ) {
-
-             event.preventDefault(); //to prevent default submission of form
-
-             $.post( "http://uploads.im/api?upload", $( "#uploadImg" ).serialize(),function(data){
-
-                console.log(data); //Response from server
-            });
-
-
-       });
+$('#uploadImg').submit(function(e) {
+    e.preventDefault();
+    $.ajax({
+        url: '/echo/json/',
+        data: $(this).serialize(),
+        type: 'POST',
+        success: function(data) {
+          alert("Success")
+            console.log(data);
+        }
+    });
+});
     </script>
   </head>
   <body>
-  <form method="POST" id="uploadImg" enctype="multipart/form-data">
+  <form method="POST" id="uploadImg" action="http://uploads.im/api?upload" enctype="multipart/form-data">
   <input type="file" name="file" />
-  <input type="submit" value="consult hot dog expert!">
+  <input type="submit" value="consult hot dog expert">
   </form>
   </body>
 </html>
