@@ -5,7 +5,7 @@
 <script>
 $(function(){
     $('#my-form').submit(function(e) {
-//alert("im here");
+    alert("im here");
         var formData = new FormData();
     formData.append("uploadFiles", $('[name="file"]')[0].files[0]);
     e.stopPropagation();
@@ -20,6 +20,7 @@ $(function(){
         alert("hey");
       }
     });
+        alert("nope");
     return false;
     });
 });
@@ -28,7 +29,7 @@ $(function(){
 <body>
     <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" />
-        <input type="submit" value="consult me" />
+        <input type="submit" value="consult" />
     </form>
 </body>
 </html>
