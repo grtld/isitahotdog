@@ -60,9 +60,7 @@
 
             reader.onload = function (e) {
                 $('#myImg')
-                    .attr('src', e.target.result)
-                    .width(50%)
-                    .height(auto);
+                    .attr('src', e.target.result);
             };
 
             reader.readAsDataURL(input.files[0]);
@@ -93,8 +91,8 @@
                     </label>
                 </div>
                 <div class="col-md-6 col-sm-6 text-left">
-                    <input type="submit" class="btn btn-primary" value="Consult Hot Dog Expert" onclick="getResponse()" />
-                    <br/><img id="myImg" src="#" alt="hot dog image">
+                    <input type="submit" class="btn btn-primary" value="Consult Hot Doge Expert" onclick="getResponse()" />
+                    <br/><img id="myImg" src="#" alt="hot dog image" width="50%" height=auto>
                 </div>
             </form>
         </div>
