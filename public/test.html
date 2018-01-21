@@ -10,7 +10,7 @@
     });
     
     function getResponse() {
-        //$("$status").css('color', 'blue');
+        $("#status").css('color', 'blue');
         $("#status").html("Contemplating image...");
         $('#my-form').submit(function(e) {
             e.preventDefault();
@@ -97,6 +97,6 @@
             </form>
         </div>
     </div>
-    <div align="center" id="status" style="color:black; size:12;"></div>
+    <div align="center" id="status" style="color:black; font-size:12px;"></div>
 </center></body>
 </html>
