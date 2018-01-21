@@ -31,12 +31,14 @@
         });
     }
     
-    function findHotDog(data) {
-        var imgurl = JSON.parse(JSON.stringify(data)).data.img_url;
+    function findHotDog(imgData) {
+        alert("var imgurl");
+        var imgurl = JSON.parse(JSON.stringify(imgData)).data.img_url;
         
         app.models.predict(Clarifai.GENERAL_MODEL, imgurl).then(
             function(response) {
                 var concepts = JSON.parse(JSON.stringify(response)).outputs[0].data.concepts;
+                alert("it begins")
                 for(var i = 0; i < concepts.length; i++) {
                     if(concepts[i].name === "hotdog" || concepts[i].name === "hot dog") {
                        alert("it is a hot dog");
@@ -57,7 +59,7 @@
 <body>
     <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" />
-        <input type="submit" value="consult hot dog expert" onclick="getResponse()"/>
+        <input type="submit" value="consult hot dog expert!" onclick="getResponse()"/>
     </form>
 </body>
 </html>
