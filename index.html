@@ -13,21 +13,13 @@
           img = document.querySelector('img');  // $('img')[0]
           img.src = URL.createObjectURL(this.files[0]); // set src to file url
           //img.onload = imageIsLoaded; // optional onload event listener
-        
-          var reader = new FileReader();
-          reader.readAsDataURL(img);
-          reader.onload = function () {
-           console.log(reader.result);
-          };
-          reader.onerror = function (error) {
-           console.log('Error: ', error);
-          };
       }
   });
 });
 function imageIsLoaded(e) { alert(e); }
 function consult() {
-  /*app.models.predict(Clarifai.GENERAL_MODEL, imgurl).then(
+  var imgurl = URL.createObjectURL(img.src);
+  app.models.predict(Clarifai.GENERAL_MODEL, imgurl).then(
     function(response) {
       strResponse = JSON.stringify(response);
       jsonParse = JSON.parse(strResponse);
@@ -36,7 +28,7 @@ function consult() {
     function(err) {
       console.log(err)
     }
-  );*/
+  );
 }
 </script>
 
@@ -45,9 +37,9 @@ function consult() {
     Is it a hot dog?
   </head>
   <body>
-  <input id="inputFileToLoad" type="file" />
-  <div id="imgTest"></div>
-  <br><img id="myImg" src="#" alt="Upload a photo" width="50%" height=auto>
-  <br><button type="button" onclick="consult()">consult the hot dog expert</button>
+  <form method="POST" action="http://uploads.im/api?upload" enctype="multipart/form-data">
+  <input type="file" name="file" />
+  <input type="submit" value="consult hot dog expert">
+  </form>
   </body>
 </html>
