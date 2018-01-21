@@ -7,8 +7,12 @@
  
     <p>File Contents as DataURL:</p>
     <textarea id="textAreaFileContents" style="width:640;height:240" ></textarea>
- 
+
+<script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script> 
 <script type="text/javascript">
+const app = new Clarifai.App({
+apiKey: 'daa61691c8ce41d8820694e320b50cd2'
+});
  
 function loadImageFileAsURL()
 {
@@ -21,12 +25,20 @@ function loadImageFileAsURL()
  
         fileReader.onload = function(fileLoadedEvent) 
         {
-            var textAreaFileContents = document.getElementById
-            (
-                "textAreaFileContents"
-            );
+            var textAreaFileContents = document.getElementById("textAreaFileContents");
      
-            textAreaFileContents.innerHTML = fileLoadedEvent.target.result;
+            //textAreaFileContents.innerHTML = fileLoadedEvent.target.result;
+         
+            app.models.predict(Clarifai.GENERAL_MODEL, fileLoadedEvent.target.result).then(
+    function(response) {
+      strResponse = JSON.stringify(response);
+      jsonParse = JSON.parse(strResponse);
+      console.log(jsonParse.outputs[0].data);
+    },
+    function(err) {
+      console.log(err)
+    }
+  );
         };
  
         fileReader.readAsDataURL(fileToLoad);
