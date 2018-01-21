@@ -5,8 +5,8 @@
 <script>
 $(function(){
     $('#my-form').submit(function(e) {
-    e.stopPropagation();
-    e.preventDefault();
+    //e.stopPropagation();
+    //e.preventDefault();
         return false;
     });
 });
@@ -15,7 +15,7 @@ $(function(){
 <body>
     <form id="my-form" action="https://uploads.im/api?upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" />
-        <input type="submit" value="submit me" />
+        <input type="submit" value="submit" />
     </form>
 </body>
 </html>
