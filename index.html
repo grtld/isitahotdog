@@ -24,10 +24,9 @@ function consult() {
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
       $(document).ready({
-        alert("READY");
-    $("#uploadImg").submit(function(event) {
+    $(uploadImg).submit(function(event) {
     alert("STOP THIS");
-    var formData = new FormData();
+    /*var formData = new FormData();
     formData.append("uploadFiles", $('[name="file"]')[0].files[0]);
     event.stopPropagation();
     event.preventDefault();
@@ -42,13 +41,13 @@ function consult() {
         loadFiles()
       }
     });
-    return false;
+    return false;*/
   });
       });
     </script>
   </head>
   <body>
-  <form method="post" id="uploadImg" action="http://uploads.im/api?upload" enctype="multipart/form-data">
+  <form method="post" id="uploadImg" enctype="multipart/form-data">
   <input type="file" name="file" />
   <input type="submit" value="consult hot dog expert!">
   </form>
