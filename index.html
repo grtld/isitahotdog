@@ -23,6 +23,14 @@ function consult() {
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    $("form#uploadImg").submit(function(e) {
+      e.preventDefault();
+      var formData = new FormData(this);    
+
+      $.post($(this).attr("action"), formData, function(data) {
+          alert(data);
+      });
+    });
     </script>
   </head>
   <body>
