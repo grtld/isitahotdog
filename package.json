@@ -1,0 +1,19 @@
+{
+  "name": "isitahotdog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "findhotdog.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grtld/isitahotdog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grtld/isitahotdog/issues"
+  },
+  "homepage": "https://github.com/grtld/isitahotdog#readme"
+}
