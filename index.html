@@ -14,12 +14,14 @@
           img.src = URL.createObjectURL(this.files[0]); // set src to file url
           //img.onload = imageIsLoaded; // optional onload event listener
         
-        var reader = new FileReader();
-       reader.readAsDataURL(img); 
-       reader.onloadend = function() {
-           base64data = reader.result;                
-           console.log(base64data);
-       }
+          var reader = new FileReader();
+          reader.readAsDataURL(img);
+          reader.onload = function () {
+           console.log(reader.result);
+          };
+          reader.onerror = function (error) {
+           console.log('Error: ', error);
+          };
       }
   });
 });
@@ -45,7 +47,7 @@ function consult() {
   <body>
   <input id="inputFileToLoad" type="file" />
   <div id="imgTest"></div>
-  <br><img id="myImg" src="#" alt="Upload a photo!" width="50%" height=auto>
+  <br><img id="myImg" src="#" alt="Upload a photo" width="50%" height=auto>
   <br><button type="button" onclick="consult()">consult the hot dog expert</button>
   </body>
 </html>
