@@ -9,6 +9,19 @@ $(function(){
         $.post($(this).attr('action'), $(this).serialize(), function(json) {
          alert(json);
         }, 'json');*/
+        
+        jQuery.ajax({
+        url: 'http://uploads.im/api?upload',
+        data: data,
+        cache: false,
+        contentType: false,
+        processData: false,
+        method: 'POST',
+        type: 'POST', // For jQuery < 1.9
+        success: function(data){
+            alert(data);
+        }
+    });
     });
 });
 </script>
@@ -16,7 +29,7 @@ $(function(){
 <body>
     <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" />
-        <input type="submit" value="submit" />
+        <input type="submit" value="submit!" />
     </form>
 </body>
 </html>
