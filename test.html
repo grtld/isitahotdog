@@ -39,7 +39,7 @@
                 var concepts = JSON.parse(JSON.stringify(response)).outputs[0].data.concepts;
                 alert("it begins");
                 for(var i = 0; i < concepts.length; i++) {
-                    if(concepts[i].name.equals("cute") {
+                    if(concepts[i].name.equals("cute")) {
                        alert("GASP");
                        return;
                     }
@@ -58,7 +58,7 @@
 <body>
     <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" />
-        <input type="submit" value="submit" onclick="findHotDog()"/>
+        <input type="submit" value="submit!" onclick="findHotDog()"/>
     </form>
 </body>
 </html>
