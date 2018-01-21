@@ -26,19 +26,15 @@
     });
 });*/
     
-    function getJSON() {
+    function getResponse() {
         $('#my-form').submit(function(e) {
             e.preventDefault();
 
             var data = new FormData();
-            /*jQuery.each(jQuery('#file')[0].files, function(i, file) {
-              data.append('file-'+i, file);
-            });*/
-            
             data.append("uploadFiles", $('[name="file"]')[0].files[0]);
 
             jQuery.ajax({
-              url: 'uploads.im/api?upload',
+              url: 'http://uploads.im/api?upload',
               data: data,
               cache: false,
               contentType: false,
@@ -53,9 +49,9 @@
 </script>
 </head>
 <body>
-    <form id="my-form" action="uploads.im/api?upload" method="post" enctype="multipart/form-data">
+    <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" />
-        <input type="submit" value="submit" onclick="getJSON()"/>
+        <input type="submit" value="submit" onclick="getResponse()"/>
     </form>
 </body>
 </html>
