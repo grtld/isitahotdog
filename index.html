@@ -1,5 +1,17 @@
 <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
 <script>
+  
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD1hpktTGQ-26oLIo-5ien5do76eMEYspk",
+    authDomain: "travelinghotdog.firebaseapp.com",
+    databaseURL: "https://travelinghotdog.firebaseio.com",
+    projectId: "travelinghotdog",
+    storageBucket: "travelinghotdog.appspot.com",
+    messagingSenderId: "1071086047019"
+  };
+  firebase.initializeApp(config);
+
   // instantiate a new Clarifai app passing in your API Key
   const app = new Clarifai.App({
   apiKey: 'daa61691c8ce41d8820694e320b50cd2'
@@ -20,6 +32,9 @@
 function imageIsLoaded(e) { alert(e); }
 
 function consult() {
+  ref.put(img.src).then(function(snapshot) {
+  console.log('Uploaded a blob or file!');
+    
   app.models.predict(Clarifai.GENERAL_MODEL, 'blob:https://grtld.github.io/2b6f6dfd-4950-4eef-8b12-a514d325e441').then(
     function(response) {
       strResponse = JSON.stringify(response);
@@ -40,7 +55,7 @@ function consult() {
   </head>
   <body>
   <input type='file' />
-  <br><img id="myImg" src="#" alt="Upload a photo!" width="50%" height=auto>
+  <br><img id="myImg" src="#" alt="Upload a photo" width="50%" height=auto>
   <br><button type="button" onclick="consult()">consult the hot dog expert</button>
   </body>
 </html>
