@@ -5,8 +5,22 @@
 <script>
 $(function(){
     $('#my-form').submit(function(e) {
+//alert("im here");
+        var formData = new FormData();
+    formData.append("uploadFiles", $('[name="file"]')[0].files[0]);
+    e.stopPropagation();
+    e.preventDefault();
+    $.ajax({
+      url: $(this).attr("action"),
+      data: formData,
+      processData: false,
+      contentType: false,
+      type: 'POST',
+      success: function(data) {
         alert("hey");
-        e.preventDefault();
+      }
+    });
+    return false;
     });
 });
 </script>
