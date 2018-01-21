@@ -20,7 +20,7 @@
 function imageIsLoaded(e) { alert(e); }
 
 function consult() {
-  app.models.predict(Clarifai.GENERAL_MODEL, "https://samples.clarifai.com/metro-north.jpg").then(
+  app.models.predict(Clarifai.GENERAL_MODEL, img.src).then(
     function(response) {
       strResponse = JSON.stringify(response);
       jsonParse = JSON.parse(strResponse);
