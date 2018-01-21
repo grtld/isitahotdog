@@ -20,7 +20,7 @@
 function imageIsLoaded(e) { alert(e); }
 
 function consult() {
-  imgurl = URL.createObjectURL(blob:https://grtld.github.io/2b6f6dfd-4950-4eef-8b12-a514d325e441);
+  var imgurl = URL.createObjectURL('blob:https://grtld.github.io/2b6f6dfd-4950-4eef-8b12-a514d325e441');
   app.models.predict(Clarifai.GENERAL_MODEL, imgurl).then(
     function(response) {
       strResponse = JSON.stringify(response);
