@@ -31,6 +31,19 @@
         $('#my-form').submit(function(e) {
             e.preventDefault();
             alert("yep")
+            
+            jQuery.ajax({
+        url: 'http://uploads.im/api?upload',
+        data: data,
+        cache: false,
+        contentType: false,
+        processData: false,
+        method: 'POST',
+        type: 'POST', // For jQuery < 1.9
+        success: function(data){
+            alert(data);
+        }
+    });
         });
     }
 </script>
@@ -38,7 +51,7 @@
 <body>
     <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" />
-        <input type="submit" value="submit!" onclick="retJSON()"/>
+        <input type="submit" value="submit" onclick="retJSON()"/>
     </form>
 </body>
 </html>
