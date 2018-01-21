@@ -31,12 +31,12 @@
         });
     }
     
-    function findHotDog(data) {
-        var imgurl = JSON.parse(JSON.stringify(data)).data.img_url;
+    function findHotDog() {
+        //var imgurl = JSON.parse(JSON.stringify(data)).data.img_url;
         
-        app.models.predict(Clarifai.GENERAL_MODEL, imgurl).then(
+        app.models.predict(Clarifai.GENERAL_MODEL, http://sk.uploads.im/t/6UDcw.jpg).then(
             function(response) {
-                alert(/*JSON.parse(*/JSON.stringify(data));
+                console.log(response);
             },
             function(err) {
                 alert(err);
@@ -49,7 +49,7 @@
 <body>
     <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" />
-        <input type="submit" value="submit!" onclick="getResponse()"/>
+        <input type="submit" value="submit" onclick="findHotDog()"/>
     </form>
 </body>
 </html>
