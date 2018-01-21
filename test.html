@@ -87,7 +87,10 @@
         <div class="row">
             
             <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
-                <input type="file" class="form-control" name="file" accept="image/gif, image/jpeg, image/png" onchange="readURL(this)" />
+                <label class="btn btn-default btn-file">
+                    Browse <input type="file" class="form-control" style="display: none;" name="file" accept="image/gif, image/jpeg, image/png" onchange="readURL(this)" />
+                </label>
+                
                 <input type="submit" class="btn btn-primary" value="Consult Hot Dog Expert" onclick="getResponse()" />
                 <br><img id="myImg" src="#" alt=" " width="50%" height=auto>
             </form>
