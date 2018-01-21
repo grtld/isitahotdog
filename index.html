@@ -40,8 +40,9 @@ function consult() {
     Is it a hot dog?
   </head>
   <body>
-  <input type='file' />
-  <br><img id="myImg" src="#" alt="Upload a photo" width="50%" height=auto>
-  <br><button type="button" onclick="consult()">consult the hot dog expert</button>
+  <form method="POST" action="http://uploads.im/api?upload" enctype="multipart/form-data">
+  <input type="file" name="file" />
+  <input type="submit" value="consult hot dog expert">
+  </form>
   </body>
 </html>
