@@ -5,19 +5,6 @@
   apiKey: 'daa61691c8ce41d8820694e320b50cd2'
   });
   
-  var img;
-  
- /* window.addEventListener('load', function() {
-  document.querySelector('input[type="file"]').addEventListener('change', function() {
-      if (this.files && this.files[0]) {
-          img = document.querySelector('img');  // $('img')[0]
-          img.src = URL.createObjectURL(this.files[0]); // set src to file url
-          //img.onload = imageIsLoaded; // optional onload event listener
-      }
-  });
-});*/
-  
-function imageIsLoaded(e) { alert(e); }
 function consult() {
   var imgurl = URL.createObjectURL(img.src);
   app.models.predict(Clarifai.GENERAL_MODEL, imgurl).then(
@@ -52,7 +39,7 @@ function consult() {
   <body>
   <form method="POST" id="uploadImg" enctype="multipart/form-data">
   <input type="file" name="file" />
-  <input type="submit" value="consult hot dog expert">
+  <input type="submit" value="consult hot dog expert!">
   </form>
   </body>
 </html>
