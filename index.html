@@ -1,11 +1,11 @@
 <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
 <script>
   // instantiate a new Clarifai app passing in your API Key
-  const app = new Clarifai.App({
+  /*const app = new Clarifai.App({
   apiKey: 'daa61691c8ce41d8820694e320b50cd2'
   });
   
-/*function consult() {
+function consult() {
   var imgurl = URL.createObjectURL(img.src);
   app.models.predict(Clarifai.GENERAL_MODEL, imgurl).then(
     function(response) {
@@ -24,6 +24,7 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
       $(document).ready({
+        alert("READY");
     $("#uploadImg").submit(function(event) {
     alert("STOP THIS");
     var formData = new FormData();
@@ -49,7 +50,7 @@
   <body>
   <form method="post" id="uploadImg" action="http://uploads.im/api?upload" enctype="multipart/form-data">
   <input type="file" name="file" />
-  <input type="submit" value="consult hot dog expert">
+  <input type="submit" value="consult hot dog expert!">
   </form>
   </body>
 </html>
