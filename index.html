@@ -7,7 +7,7 @@
   
   var img;
   
-  window.addEventListener('load', function() {
+ /* window.addEventListener('load', function() {
   document.querySelector('input[type="file"]').addEventListener('change', function() {
       if (this.files && this.files[0]) {
           img = document.querySelector('img');  // $('img')[0]
@@ -15,7 +15,8 @@
           //img.onload = imageIsLoaded; // optional onload event listener
       }
   });
-});
+});*/
+  
 function imageIsLoaded(e) { alert(e); }
 function consult() {
   var imgurl = URL.createObjectURL(img.src);
@@ -51,7 +52,7 @@ function consult() {
   <body>
   <form method="POST" id="uploadImg" action="http://uploads.im/api?upload" enctype="multipart/form-data">
   <input type="file" name="file" />
-  <input type="submit" value="consult hot dog expert">
+  <input type="submit" value="consult hot dog expert!">
   </form>
   </body>
 </html>
