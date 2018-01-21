@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script> 
     function getResponse() {
@@ -18,14 +19,23 @@
               processData: false,
               method: 'POST',
               success: function(data){
-                 getURL(data);
+                 findHotDog(data);
               }
             });
         });
     }
     
-    function getURL(data) {
-        alert(JSON.parse(JSON.stringify(data)).data.img_url);
+    function findHotDog(data) {
+        var imgurl = JSON.parse(JSON.stringify(data)).data.img_url;
+        
+        app.models.predict(Clarifai.GENERAL_MODEL, imgurl).then(
+            function(response) {
+                alert(JSON.parse(JSON.stringify(data)));
+            },
+            function(err) {
+                alert(err);
+            }
+        );
     }
     
 </script>
@@ -33,7 +43,7 @@
 <body>
     <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" />
-        <input type="submit" value="submit!" onclick="getResponse()"/>
+        <input type="submit" value="submit" onclick="getResponse()"/>
     </form>
 </body>
 </html>
