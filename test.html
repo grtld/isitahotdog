@@ -11,6 +11,7 @@
     });
     
     function getResponse() {
+        $("#status").html("Contemplating image...");
         $('#my-form').submit(function(e) {
             e.preventDefault();
 
@@ -25,7 +26,6 @@
               processData: false,
               method: 'POST',
               success: function(data){
-                 $("#status").html("Please wait while the hot dog expert is thinking...");
                  findHotDog(data);
               }
             });
@@ -74,7 +74,7 @@
 <body>
     <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" accept="image/gif, image/jpeg, image/png" onchange="readURL(this)" />
-        <input type="submit" value="consult hot dog expert!" onclick="getResponse()" />
+        <input type="submit" value="consult hot dog expert" onclick="getResponse()" />
         <br><img id="myImg" src="#" alt=" " width="50%" height=auto>
     </form>
     <div id="status"></div>
