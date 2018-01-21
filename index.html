@@ -5,7 +5,7 @@
   apiKey: 'daa61691c8ce41d8820694e320b50cd2'
   });
   
-function consult() {
+/*function consult() {
   var imgurl = URL.createObjectURL(img.src);
   app.models.predict(Clarifai.GENERAL_MODEL, imgurl).then(
     function(response) {
@@ -17,20 +17,31 @@ function consult() {
       console.log(err)
     }
   );
-}
+}*/
 </script>
 
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    $("form#uploadImg").submit(function(e) {
-      e.preventDefault();
-      var formData = new FormData(this);    
-
-      $.post($(this).attr("action"), formData, function(data) {
-          alert(data);
-      });
+    $("#uploadImg").submit(function(event) {
+    alert("STOP THIS");
+    var formData = new FormData();
+    formData.append("uploadFiles", $('[name="file"]')[0].files[0]);
+    event.stopPropagation();
+    event.preventDefault();
+    $.ajax({
+      url: $(this).attr("action"),
+      data: formData,
+      processData: false,
+      contentType: false,
+      type: 'POST',
+      success: function(data) {
+        alert(data);
+        loadFiles()
+      }
     });
+    return false;
+  });
     </script>
   </head>
   <body>
