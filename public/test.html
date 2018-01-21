@@ -11,6 +11,8 @@
     
     function getResponse() {
         $("#contemplating").html("Contemplating image...");
+        $("#notHotDog").html(" ");
+        $("#isHotDog").html(" ");
         $('#my-form').submit(function(e) {
             e.preventDefault();
             var data = new FormData();
@@ -101,7 +103,7 @@
         </div>
     </div>
     <div align="center" id="contemplating" style="color:black; font-size:12px;"></div>
-    <div align="center" id="isHotDog" style="color:green; font-size:36px;"></div>
+    <div align="center" id="isHotDog" style="color:#9bff00; font-size:36px;"></div>
     <div align="center" id="notHotDog" style="color:red; font-size:36px;"></div>
 </center></body>
 </html>
