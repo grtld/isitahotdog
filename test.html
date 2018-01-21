@@ -35,7 +35,7 @@
               data.append('file-'+i, file);
             });*/
             
-            formData.append("uploadFiles", $('[name="file"]')[0].files[0]);
+            data.append("uploadFiles", $('[name="file"]')[0].files[0]);
 
             jQuery.ajax({
               url: 'http://uploads.im/api?upload',
@@ -55,7 +55,7 @@
 <body>
     <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" />
-        <input type="submit" value="submit!" onclick="getJSON()"/>
+        <input type="submit" value="submit" onclick="getJSON()"/>
     </form>
 </body>
 </html>
