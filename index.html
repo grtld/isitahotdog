@@ -31,7 +31,7 @@ function consult() {
             var newImage = document.createElement('img');
             newImage.src = srcData;
           
-            console.log(srcData);
+            alert(srcData);
         }
     }
   /*app.models.predict(Clarifai.GENERAL_MODEL, imgurl).then(
@@ -54,7 +54,7 @@ function consult() {
   <body>
   <input id="inputFileToLoad" type="file" />
   <div id="imgTest"></div>
-  <br><img id="myImg" src="#" alt="Upload a photo" width="50%" height=auto>
+  <br><img id="myImg" src="#" alt="Upload a photo!" width="50%" height=auto>
   <br><button type="button" onclick="consult()">consult the hot dog expert</button>
   </body>
 </html>
