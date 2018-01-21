@@ -25,7 +25,7 @@
               processData: false,
               method: 'POST',
               success: function(data){
-                 $("#regTitle").html("Please wait while the hot dog expert is thinking...");
+                 $("#status").html("Please wait while the hot dog expert is thinking...");
                  findHotDog(data);
               }
             });
@@ -34,20 +34,18 @@
     
     function findHotDog(imgData) {
         var imgurl = JSON.parse(JSON.stringify(imgData)).data.img_url;
-        alert(imgurl);
         
         app.models.predict(Clarifai.GENERAL_MODEL, imgurl).then(
             function(response) {
                 var concepts = JSON.parse(JSON.stringify(response)).outputs[0].data.concepts;
-                alert("it begins")
                 for(var i = 0; i < concepts.length; i++) {
                     if(concepts[i].name === "hotdog" || concepts[i].name === "hot dog") {
-                       $("#regTitle").html("This is a hot dog.");
+                       $("#status").html("This is a hot dog.");
                        return;
                     }
                 }
                 
-                $("#regTitle").html("This is not a hot dog.");
+                $("#status").html("This is not a hot dog.");
             },
             function(err) {
                 alert(err);
@@ -76,7 +74,7 @@
 <body>
     <form id="my-form" action="http://uploads.im/api?upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" accept="image/gif, image/jpeg, image/png" onchange="readURL(this)" />
-        <input type="submit" value="consult hot dog expert" onclick="getResponse()" />
+        <input type="submit" value="consult hot dog expert!" onclick="getResponse()" />
         <br><img id="myImg" src="#" alt=" " width="50%" height=auto>
     </form>
     <div id="status"></div>
