@@ -23,6 +23,7 @@
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+      $(document).ready({
     $("#uploadImg").submit(function(event) {
     alert("STOP THIS");
     var formData = new FormData();
@@ -42,12 +43,13 @@
     });
     return false;
   });
+      });
     </script>
   </head>
   <body>
   <form method="post" id="uploadImg" action="http://uploads.im/api?upload" enctype="multipart/form-data">
   <input type="file" name="file" />
-  <input type="submit" value="consult hot dog expert!">
+  <input type="submit" value="consult hot dog expert">
   </form>
   </body>
 </html>
